@@ -115,7 +115,7 @@ int main(int argc, char **argv) {
         ElfN_Ehdr *e_hdr = ElfN_Ehdr_create();
 
         // Crafting Program Header
-        ElfN_Phdr *p_hdr = ElfN_Phdr_create(sizeof(payload));
+        ElfN_Phdr *p_hdr = ElfN_Phdr_create(strlen(payload));
 
         fwrite(e_hdr, sizeof(ElfN_Ehdr), 1, f);
         fwrite(p_hdr, sizeof(ElfN_Phdr), 1, f);
