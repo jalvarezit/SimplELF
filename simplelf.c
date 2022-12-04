@@ -164,7 +164,7 @@ int main(int argc, char **argv) {
         fwrite(e_hdr, sizeof(ElfN_Ehdr), 1, f);
         fwrite(p_hdr_load, sizeof(ElfN_Phdr), 1, f);
         if(e_type == ET_DYN) fwrite(p_hdr_dyn, sizeof(ElfN_Phdr), 1, f);
-        fwrite(payload, strlen(payload), 1, f);
+        fwrite(payload, strlen(argv[2])/2, 1, f);
         
         if(e_type == ET_DYN) for(int i = 0; i < PDYN_NUM; i++) fwrite(p_dyn[i], sizeof(**p_dyn), 1, f);
 
